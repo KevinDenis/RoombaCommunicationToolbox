@@ -1,0 +1,55 @@
+Intro
+-----
+to-do
+
+Version changes
+---------------
+
+v1.00b:31/03/2016
+* Implementation of MATLAB objects, simplifying the communication and making it more reliable. Potietialy speeding it up.
+
+v0.90: 09/03/2016
+* Added a large amount of documentation (
+
+v0.81: 05/12/2015
+* Minor bug change, added # of bits in dec2bin (getSafetySensors). Maybe error will rise somewhere else ?
+* Added battery check at startup. If <30%, warning.
+* Added controlProgram_template with try-catch statement.
+  This will automaticly stopRoomba(comPort) when error occurs
+
+v0.80: 01/12/2015
+* A lot of bugs were removed, wrong function to transform int to boolean was modified.
+* function getDataUDP is now able to manipulate data so that str2byte receives correct form.
+* All sensor functions are now working.
+
+v0.75: 10/11/2015
+* getOdometry now checks for velocity and radius if not given.
+  CAUTION THIS IS x2 SLOWER !!!!
+* Corrected bug with receved data string if python gives more then just numbers
+  Now, data is trimmed until FIRST '[' and from last ']' to end.
+* Try catch now indicates which function has failed.
+
+v0.70: 01/10/2015
+* Added startup guide in Documentation.
+
+v0.6: 15/09/2015
+* More appropriate user message for failure during UDP transition.
+* getEncoders now clearly states it expects also the radius and the velocity of the Roomba.
+* Added IP's of the 4 other Roomba's in case structure.
+
+v0.50: 01/09/2015
+* Adaptation of the original toolbox for data transition over UDP.
+* Complete reprogramming of the getOdometry function. 
+  Raw encoders values are now used, instead of in build-in function
+
+Development notes & ToDo
+------------------------
+
+* Syntax difference between R2014 and R2013 on flip (flip(new) --> fliprl(old)). 
+* Find improvements to debug EVEN with Try - catch statements.
+* Explain how to make a new function with data sheet.
+* speed up communication by giving more sensor data. e.g. add wall to safety sensors. Maybe even add dist and angle ?
+* migration to python3
+* !!!! strread for byte2str !!!!
+* Use of streaming will largely speed up proces. Allready partialy implemented on bluetooth during summer 2015.
+* Implementation of travelDist & turnAngle on the Pi ?
